@@ -65,7 +65,7 @@ public class ClienteController {
 		
 		clienteService.save(cliente);
 		status.setComplete();
-		return "redirect:listar";
+		return "redirect:/listar";
 	}
 	
 	@RequestMapping(value="/eliminar/{id}")
