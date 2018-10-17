@@ -11,39 +11,38 @@ public class PageRender<T> {
 	private Page<T> page;
 	
 	private int totalPaginas;
-	private int numElemntosPorPagina;
+	private int numElementosPorPagina;
 	private int paginaActual;
 	private List<PageItem> paginas;
 	
 	public PageRender(String url, Page<T> page) {
-		super();
 		this.url = url;
 		this.page = page;
 		this.paginas = new ArrayList<PageItem>();
 		
-		numElemntosPorPagina = page.getSize();
+		numElementosPorPagina = page.getSize();
 		totalPaginas = page.getTotalPages();
-		paginaActual = page.getNumber() +1;
+		paginaActual = page.getNumber() + 1;
 		
 		int desde, hasta;
-		if (totalPaginas <= numElemntosPorPagina) {
+		if (totalPaginas <= numElementosPorPagina) {
 			desde = 1;
 			hasta = totalPaginas;
 		} else {
-			if (paginaActual <= numElemntosPorPagina/2) {
+			if (paginaActual <= numElementosPorPagina/2) {
 				desde = 1;
-				hasta = numElemntosPorPagina;
-			} else if (paginaActual >= totalPaginas - numElemntosPorPagina/2) {
-				desde = totalPaginas - numElemntosPorPagina + 1;
-				hasta = numElemntosPorPagina;
+				hasta = numElementosPorPagina;
+			} else if (paginaActual >= totalPaginas - numElementosPorPagina/2) {
+				desde = totalPaginas - numElementosPorPagina + 1;
+				hasta = numElementosPorPagina;
 			} else {
-				desde = paginaActual - numElemntosPorPagina/2;
-				hasta = numElemntosPorPagina;
+				desde = paginaActual - numElementosPorPagina/2;
+				hasta = numElementosPorPagina;
 			}
 		}
 		
 		for (int i = 0; i < hasta; i++) {
-			paginas.add(new PageItem(desde+i, paginaActual == desde+1));
+			paginas.add(new PageItem(desde+i, paginaActual == desde+i));
 		}
 	}
 
