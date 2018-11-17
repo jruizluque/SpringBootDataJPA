@@ -46,6 +46,8 @@ public class Cliente implements Serializable {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createAt;
 	
+	private String foto;
+	
 	public Long getId() {
 		return id;
 	}
@@ -75,5 +77,11 @@ public class Cliente implements Serializable {
 	}
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 }
